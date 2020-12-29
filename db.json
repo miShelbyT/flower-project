@@ -1,0 +1,53 @@
+{
+  "flowerlist": [
+    {
+      "name": "Daffodil",
+      "type": "perennial",
+      "img": "https://www.almanac.com/sites/default/files/styles/primary_image_in_article/public/image_nodes/daffodil.jpg?itok=KSBgH9y9",
+      "factoid": "Narcissus is a genus of predominantly spring flowering perennial plants of the amaryllis family, Amaryllidaceae. Various common names including daffodil, narcissus and jonquil are used to describe all or some members of the genus.",
+      "id": 1
+    },
+    {
+      "name": "Helianthus",
+      "type": "annual/perennial",
+      "img": "https://gilmour.com/wp-content/uploads/2018/03/growing-sunflowers.jpg",
+      "factoid": "The common names 'sunflower' and 'common sunflower' typically refer to the popular annual species Helianthus annuus, whose round flower heads in combination with the ligules look like the sun.",
+      "id": 2
+    },
+    {
+      "name": "Clematis",
+      "type": "perennial (flowering vine)",
+      "img": "https://ichef.bbci.co.uk/news/976/cpsprodpb/957C/production/_111686283_pic1.png",
+      "factoid": "The genus name Clematis is from Ancient Greek clématis, ('a climbing plant') from κλῆμα klema – 'twig, sprout, tendril'. Over 250 species and cultivars are known, often named for their originators or particular characteristics.",
+      "id": 3
+    },
+    {
+      "name": "Iris",
+      "type": "perennial",
+      "img": "https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2015/11/10/0/CI_Walters-Gardens-HI14642-Iris-Clarence.jpg.rend.hgtvcom.616.822.suffix/1447169995929.jpeg",
+      "factoid": "Iris is a genus of 260–300species of flowering plants with showy flowers. It takes its name from the Greek word for a rainbow, which is also the name for the Greek goddess of the rainbow, Iris.",
+      "id": 4
+    },
+    {
+      "name": "Water Lily",
+      "type": "annual",
+      "img": "https://www.thoughtco.com/thmb/19F0cna2JSUcDnkuv7oUiSYALBQ=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/lotus-flower-828457262-5c6334b646e0fb0001dcd75a.jpg",
+      "factoid": "Nelumbo nucifera, also known as Indian lotus, sacred lotus, bean of India, Egyptian bean or simply lotus, is one of two extant species of aquatic plant in the family Nelumbonaceae. It is often colloquially called a water lily.",
+      "id": 5
+    },
+    {
+      "name": "Poppy",
+      "type": "varies",
+      "img": "https://i.pinimg.com/564x/06/db/de/06dbdecb5fee4b45e7989600dd6f5941.jpg",
+      "factoid": "Following the trench warfare in the poppy fields of Flanders, Belgium during World War I, poppies have become a symbol of remembrance of soldiers who have died during wartime.",
+      "id": 6
+    },
+    {
+      "name": "Dahlia",
+      "type": "perennial",
+      "img": "https://www.thespruce.com/thmb/t1EafFPOL1rRkQKfK09jp3vTK4Q=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/DahliaHamariGold-GettyImages-1177067451-e2d2e860deef494f8491c232102b35ec.jpg",
+      "factoid": "The dahlia was declared the national flower of Mexico in 1963.",
+      "id": 7
+    }
+  ]
+}
