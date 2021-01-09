@@ -1,8 +1,8 @@
-// import { ADD_FLOWER } from './actionTypes';
+import { ADD_FLOWER, GET_FLOWERS } from './actionTypes';
 
 // the whole point of this function is to return the object with type key and payload.
 
-export const addFlower = (flowerObj) => ({type: "add flower", payload: flowerObj})
+export const addFlower = (flowerObj) => ({type: ADD_FLOWER, payload: flowerObj})
 
 
 export const getFlowers = () => {
@@ -12,8 +12,8 @@ export const getFlowers = () => {
 // anonymous function, we don't need to give it a variable name bc we won't be calling it.
     fetch("http://localhost:5000/flowerlist")
         .then(resp => resp.json())
-        .then(console.log)
-        // .then(flowerArray => dispatch({ type: "get flowers", payload: flowerArray }))
+        // .then(console.log)
+        .then(flowerArray => dispatch({ type: GET_FLOWERS, payload: flowerArray }))
 
 // ...........something is wrong with line 16? everything works fine until in comment that line back in - initial fetch does not work on render................
 

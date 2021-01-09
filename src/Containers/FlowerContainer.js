@@ -16,12 +16,13 @@ class FlowerContainer extends React.Component {
   }
 
   componentDidMount() {
-     this.props.getFlowers()
-
-  //   fetch("http://localhost:5000/flowerlist")
-  //     .then(resp => resp.json())
-  //     .then(flowerArray => this.setState({ flowerAPI: flowerArray }))
+    this.props.getFlowers()
   }
+
+  // fetch("http://localhost:5000/flowerlist")
+  //   .then(resp => resp.json())
+  //   .then(flowerArray => this.setState({ flowerAPI: flowerArray }))
+
 
   // submitHandler = (flowerObj) => {
   //   fetch('http://localhost:5000/flowerlist', {
@@ -54,7 +55,7 @@ class FlowerContainer extends React.Component {
 
   renderFilteredFlowers() {
     let filteredArray = this.props.flowers.filter(flowerObj => flowerObj.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
-    console.log(this.props)
+    // console.log(this.props)
 
     return filteredArray.map(flowerObj => <FlowerComponent key={flowerObj.id} flowerObj={flowerObj} faveAFlower={this.faveAFlower} getFlowerObj={this.getFlowerObj} />)
 
@@ -70,23 +71,25 @@ class FlowerContainer extends React.Component {
     // console.log(this.props.flowers)
     return (
       <>
+        {this.props.flowers.length === 0 ? <h2>loading...</h2> :
 
+          <Switch>
+            <Route path="/flowers/new" render={() => <NewFlowerForm submitHandler={this.submitHandler} />} />
+            <Route path="/flowers/saved" render={() => <FavedContainer favedFlowers={this.state.favedFlowers} />} />
+            <Route path="/flowers" render={() => {
+              return (
+                this.props.flowers.length === 0 ? <h2>loading...</h2> :
+                  <>
+                    <SearchFlowerForm searchTerm={this.state.searchTerm} searchFlower={this.searchFlower} />
 
-        <Switch>
-          <Route path="/flowers/new" render={() => <NewFlowerForm submitHandler={this.submitHandler} />} />
-          <Route path="/flowers/saved" render={() => <FavedContainer favedFlowers={this.state.favedFlowers} />} />
-          <Route path="/flowers" render={() => {
-            return (
-              <>
-                <SearchFlowerForm searchTerm={this.state.searchTerm} searchFlower={this.searchFlower} />
-                <div className="flower-div">
-                  {this.renderFilteredFlowers()}
-                 </div>
-              </>
-            )
-          }} />
-        </Switch>
+                    {this.renderFilteredFlowers()}
+                  </>
+              )
 
+            }} />
+
+          </Switch>
+        }
 
       </>
     )
@@ -102,7 +105,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return { getFlowers: () => dispatch(getFlowers())}
+  return { getFlowers: () => dispatch(getFlowers()) }
 }
 
 

@@ -1,32 +1,22 @@
-// import { combineReducers } from 'redux'
+import { combineReducers } from 'redux'
+import { ADD_FLOWER, GET_FLOWERS } from './actionTypes'
 
-const rootReducer = (currentState = { flowers: [] }, action) => {
-  // console.log("reducer action", action)
+
+const defaultState = {
+  flowers: [],
+  users: []
+}
+
+function flowersReducer(currentState = defaultState.flowers, action) {
   switch (action.type) {
-    case "add flower":
-      return { ...currentState, flowers: [...currentState.flowers, action.payload] }
-    case "get flowers":
-      return { ...currentState, flowers: action.payload }
+    case ADD_FLOWER:
+      return [...currentState, action.payload]
+    case GET_FLOWERS:
+      return action.payload
     default:
       return currentState
   }
 }
-
-// const defaultState = {
-//   flowers: [],
-//   users: []
-// }
-
-// function flowersReducer(currentState = defaultState.flowers, action) {
-//   switch (action.type) {
-//     case "add flower":
-//       return [...currentState, action.payload]
-//     case "get flowers":
-//       return action.payload
-//     default:
-//       return currentState
-//   }
-// }
 
 // i will want to duplicate the function above if/when i add users to my app
 // const usersReducer = () => {
@@ -34,9 +24,8 @@ const rootReducer = (currentState = { flowers: [] }, action) => {
 // }
 
 
-// const rootReducer = combineReducers({
-//   flowers: flowersReducer,
-//   users: usersReducer
-// })
+const rootReducer = combineReducers({
+  flowers: flowersReducer
+})
 
 export default rootReducer

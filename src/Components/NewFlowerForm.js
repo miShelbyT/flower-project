@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addFlower } from '../redux/actions'
+import { withRouter } from 'react-router-dom'
 
 
 class NewFlowerForm extends React.Component {
@@ -21,6 +22,7 @@ class NewFlowerForm extends React.Component {
   submitHandler = (e) => {
     e.preventDefault()
     this.props.submitHandler(this.state)
+    this.props.history.push("/flowers")
     this.setState({
       name: "",
       type: "",
@@ -57,4 +59,4 @@ const mapDispatchToProps = (dispatch) => {
 return { submitHandler: (flowerObj) => dispatch(addFlower(flowerObj))}
 }
 
-export default connect(null, mapDispatchToProps)(NewFlowerForm)
+export default withRouter(connect(null, mapDispatchToProps)(NewFlowerForm))
