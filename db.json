@@ -48,6 +48,13 @@
       "img": "https://www.thespruce.com/thmb/t1EafFPOL1rRkQKfK09jp3vTK4Q=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/DahliaHamariGold-GettyImages-1177067451-e2d2e860deef494f8491c232102b35ec.jpg",
       "factoid": "The dahlia was declared the national flower of Mexico in 1963.",
       "id": 7
+    },
+    {
+      "name": "Anemone",
+      "type": "perennial",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Anemones5.jpg/1024px-Anemones5.jpg",
+      "factoid": "Anemone is of the family buttercup",
+      "id": 8
     }
   ]
 }

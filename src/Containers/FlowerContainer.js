@@ -19,33 +19,13 @@ class FlowerContainer extends React.Component {
     this.props.getFlowers()
   }
 
-  // fetch("http://localhost:5000/flowerlist")
-  //   .then(resp => resp.json())
-  //   .then(flowerArray => this.setState({ flowerAPI: flowerArray }))
-
-
-  // submitHandler = (flowerObj) => {
-  //   fetch('http://localhost:5000/flowerlist', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(flowerObj),
-  //   })
-  //     .then(response => response.json())
-  //     .then(newFlowerObj => {
-  //       this.setState({ flowerAPI: [...this.state.flowerAPI, newFlowerObj] })
-  //       console.log('Success:', newFlowerObj);
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error:', error);
-  //     });
-  // }
 
   faveAFlower = (flowerObj) => {
-    const newFlowerArray = [...this.state.favedFlowers, flowerObj]
-    this.setState({ favedFlowers: newFlowerArray })
-    console.log(this.state.favedFlowers)
+    if(!this.state.favedFlowers.includes(flowerObj)){
+      const newFlowerArray = [...this.state.favedFlowers, flowerObj]
+      this.setState({ favedFlowers: newFlowerArray })
+      console.log(this.state.favedFlowers)
+    }
   }
 
 

@@ -83,6 +83,19 @@ input[type=text] {
   border-radius: 4px;
 }
 
+.other-button {
+  background-color: #f3d6e9;
+  border: none;
+  color: rgb(59, 15, 15);
+  padding: 7px 10px;
+  margin: 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
 #header {
   margin: 0px;
   font-family: Georgia;
