@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import FlowerComponent from '../Components/FlowerComponent'
 import NewFlowerForm from '../Components/NewFlowerForm'
 import SearchFlowerForm from '../Components/SearchFlowerForm'
+import ChangeFlowerForm from '../Components/ChangeFlowerForm'
 import FavedContainer from '../Containers/FavedContainer'
 import { getFlowers } from '../redux/actions'
 
@@ -53,6 +54,8 @@ class FlowerContainer extends React.Component {
       <>
         {this.props.flowers.length === 0 ? <h2>loading...</h2> :
 
+        
+
           <Switch>
             <Route path="/flowers/new" render={() => <NewFlowerForm submitHandler={this.submitHandler} />} />
             <Route path="/flowers/saved" render={() => <FavedContainer favedFlowers={this.state.favedFlowers} />} />
@@ -61,6 +64,7 @@ class FlowerContainer extends React.Component {
                 this.props.flowers.length === 0 ? <h2>loading...</h2> :
                   <>
                     <SearchFlowerForm searchTerm={this.state.searchTerm} searchFlower={this.searchFlower} />
+                    <ChangeFlowerForm />
 
                     {this.renderFilteredFlowers()}
                   </>

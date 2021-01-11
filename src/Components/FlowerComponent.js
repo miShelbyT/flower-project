@@ -15,7 +15,7 @@ increaseLikes = () => {
 
 localFaveAFlower = () => {
   this.props.faveAFlower(this.props.flowerObj)
-  console.log(this.props.flowerObj)
+  console.log(this)
 }
 
 sendFlowerToChangeForm = () => {

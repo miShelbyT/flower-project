@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 import FlowerContainer from './Containers/FlowerContainer'
 import Header from './Components/Header'
 import Navbar from './Components/Navbar'
+import Affirmations from './Components/Affirmations'
 
 
 
@@ -13,6 +14,7 @@ function App () {
       <>
         <Header />
         <Navbar />
+        <Affirmations />
         <Switch>
           <Route path="/flowers" component={FlowerContainer}/>
         </Switch>
