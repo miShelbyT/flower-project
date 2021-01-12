@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { deleteFlower } from '../redux/actions'
 
 
 class FlowerComponent extends React.Component{
@@ -30,6 +32,11 @@ clickHandler = () => {
   this.setState({beenClicked: !this.state.beenClicked})
 }
 
+deleteClickHandler = () => {
+  // this.props.deleteFlower()
+  // console.log("this is not working. yet")
+}
+
 
 
 
@@ -48,6 +55,7 @@ render(){
 
 {this.state.beenClicked ?
 <p className='text' >Factoid: {this.props.flowerObj.factoid}</p> :null}
+<button className="other-button" onClick={this.deleteClickHandler}>🦋 Delete Flower🦋</button>
     
     <br></br>
     <span> 🌼 🌼 🌼 🌼 </span>
@@ -59,4 +67,11 @@ render(){
 
 }
 
-export default FlowerComponent
+const mdp = (dispatch) => {
+return {
+  deleteFlower: (flowerId) => dispatch(deleteFlower(flowerId)),
+  // getFlowers: () => dispatch(getFlowers())
+}
+}
+
+export default connect(null, mdp)(FlowerComponent)

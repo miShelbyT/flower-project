@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux'
-import { ADD_FLOWER, GET_FLOWERS } from './actionTypes'
+import { ADD_FLOWER, GET_FLOWERS, GET_AFFIRMATION, DELETE_FLOWER } from './actionTypes'
 
 
 const defaultState = {
   flowers: [],
-  users: []
+  users: [], 
+  affirmation: ""
 }
 
 function flowersReducer(currentState = defaultState.flowers, action) {
@@ -13,6 +14,8 @@ function flowersReducer(currentState = defaultState.flowers, action) {
       return [...currentState, action.payload]
     case GET_FLOWERS:
       return action.payload
+      case DELETE_FLOWER:
+        return 0
     default:
       return currentState
   }
@@ -23,9 +26,20 @@ function flowersReducer(currentState = defaultState.flowers, action) {
 //   return { users: ["Shelby test", "Chris test"] }
 // }
 
+function affirmationReducer(currentState = defaultState.affirmation, action){
+  switch (action.type) {
+    case GET_AFFIRMATION:
+      return action.payload
+      default:
+        return currentState
+  }
+
+}
+
 
 const rootReducer = combineReducers({
-  flowers: flowersReducer
+  flowers: flowersReducer,
+  affirmation: affirmationReducer
 })
 
 export default rootReducer

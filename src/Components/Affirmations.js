@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { getAffirmation } from '../redux/actions'
 
 
 class Affirmations extends React.Component {
@@ -25,29 +27,24 @@ class Affirmations extends React.Component {
 
   componentDidUpdate() {
     if (this.state.gotAffirmation) {
-      fetch("https://dulce-affirmations-api.herokuapp.com/affirmation")
-        .then(r => r.json())
-        .then(data => {
-          console.log(data[0].phrase)
-          // console.log(data)
-          this.setState({ affirmation: data[0].phrase, gotAffirmation: false })
-        })
+      this.props.getAffirmation()
+      this.setState({ gotAffirmation: false })
+      // console.log("i'm in component did update")
     }
   }
 
 
 
   clickHandler = () => {
-    this.setState({ beenClicked: !this.state.beenClicked, gotAffirmation: true  })
+    this.setState({ beenClicked: !this.state.beenClicked, gotAffirmation: true })
   }
 
 
   render() {
-    console.log(this.state.gotAffirmation)
-    // !this.state.beenClicked ? this.fetchAffirmation() : null
+    // console.log(this.state.gotAffirmation)
     return (
       <div>
-        {this.state.beenClicked ? <div className="div" ><span>{this.state.affirmation}</span></div> : null}
+        {this.state.beenClicked ? <div className="div-affirm" ><span>{this.props.affirmation}</span></div> : null}
         {this.state.beenClicked ?
           <button onClick={this.clickHandler} className="other-button" >Thanks for the Affirmation!</button> :
           <button onClick={this.clickHandler} className="other-button" >Affirmations Right Here</button>
@@ -58,10 +55,17 @@ class Affirmations extends React.Component {
 
   }
 
-
-
-
-
 }
 
-export default Affirmations
+
+const msp = (state) => {
+  return { affirmation: state.affirmation }
+}
+
+const mdp = (dispatch) => {
+  return {
+    getAffirmation: () => dispatch(getAffirmation())
+  }
+}
+
+export default connect(msp, mdp)(Affirmations)

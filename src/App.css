@@ -52,6 +52,7 @@ input[type=text] {
   width: 15%;
   padding: 12px 20px;
   margin: 7px;
+  margin-left: auto;
   box-sizing: border-box;
   border-radius: 4px;
   background-color: #faf4f4;
@@ -73,7 +74,7 @@ input[type=text] {
 
 .button {
   background-color: #4CAF50; /* Green */
-  border: none;
+  border: 2 px solid black;
   color: white;
   padding: 12px 20px;
   text-align: center;
@@ -85,7 +86,7 @@ input[type=text] {
 
 .other-button {
   background-color: #f3d6e9;
-  border: none;
+  border: 2px solid grey;
   color: rgb(59, 15, 15);
   padding: 7px 10px;
   margin: 8px;
@@ -110,12 +111,11 @@ flex-wrap: wrap;
   margin: 20px 350px;
 }
 
-.div {
+.div-affirm {
+  display: inline-block;
+  margin: 20px;
+  padding:1% 5%;
   border: 2px solid grey;
-  margin-left: auto;
-  margin-right: auto;
   border-radius: 7px;
-  width: 500px;
-  height: 25px;
-  text-align: center
+  
 }

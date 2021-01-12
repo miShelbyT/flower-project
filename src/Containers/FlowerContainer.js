@@ -25,7 +25,7 @@ class FlowerContainer extends React.Component {
     if(!this.state.favedFlowers.includes(flowerObj)){
       const newFlowerArray = [...this.state.favedFlowers, flowerObj]
       this.setState({ favedFlowers: newFlowerArray })
-      console.log(this.state.favedFlowers)
+      // console.log(this.state.favedFlowers)
     }
   }
 
@@ -57,15 +57,19 @@ class FlowerContainer extends React.Component {
         
 
           <Switch>
-            <Route path="/flowers/new" render={() => <NewFlowerForm submitHandler={this.submitHandler} />} />
+            <Route path="/flowers/new" render={() => 
+            <>
+            <NewFlowerForm submitHandler={this.submitHandler} />
+            <ChangeFlowerForm />
+            </>}
+            />
             <Route path="/flowers/saved" render={() => <FavedContainer favedFlowers={this.state.favedFlowers} />} />
             <Route path="/flowers" render={() => {
               return (
                 this.props.flowers.length === 0 ? <h2>loading...</h2> :
                   <>
                     <SearchFlowerForm searchTerm={this.state.searchTerm} searchFlower={this.searchFlower} />
-                    <ChangeFlowerForm />
-
+                    
                     {this.renderFilteredFlowers()}
                   </>
               )
