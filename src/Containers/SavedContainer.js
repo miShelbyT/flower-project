@@ -2,7 +2,7 @@ import React from 'react';
 
 import FlowerComponent from '../Components/FlowerComponent'
 
-function FavedContainer(props){
+function SavedContainer(props){
 
   function renderFaves(){
     return props.favedFlowers.map(flowerObj => <FlowerComponent key={flowerObj.id} flowerObj={flowerObj}/>)
@@ -12,7 +12,7 @@ function FavedContainer(props){
   return(
     <>
     <hr></hr>
-    <h2>Faved Flowers: 🌷🌻</h2>
+    <h2>Saved Flowers: 🌷🌻</h2>
     <hr></hr>
     {renderFaves()}
   
@@ -21,4 +21,4 @@ function FavedContainer(props){
 
 }
 
-export default FavedContainer
+export default SavedContainer

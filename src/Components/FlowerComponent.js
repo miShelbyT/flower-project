@@ -47,7 +47,7 @@ class FlowerComponent extends React.Component {
         <h3 className="text"> {this.props.flowerObj.name} ☀️</h3>
         <img onClick={this.sendFlowerToChangeForm} className="img" src={this.props.flowerObj.img} alt="flowers" />
         <h4>Type: {this.props.flowerObj.type}</h4>
-        <h4>Likes Counter: {this.state.counterLikes}</h4>
+        <h4>Fave/Likes Counter: {this.state.counterLikes}</h4>
 
         <Button animated='vertical' onClick={this.increaseLikes} basic color='red' content='Red' >
           <Button.Content hidden>Fave</Button.Content>
@@ -57,7 +57,7 @@ class FlowerComponent extends React.Component {
         </Button>
 
         <Button animated='vertical' onClick={this.localFaveAFlower} basic color='blue' content='Blue' >
-          <Button.Content hidden>Fave</Button.Content>
+          <Button.Content hidden>Save</Button.Content>
           <Button.Content visible>
             <Icon name='save' />
           </Button.Content>

@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addFlower } from '../redux/actions'
 import { withRouter } from 'react-router-dom'
+import { Button } from 'semantic-ui-react'
 
 
 class NewFlowerForm extends React.Component {
@@ -46,7 +47,7 @@ class NewFlowerForm extends React.Component {
 
         <input type="text" name="factoid" placeholder="fun flower fact goes here..." value={this.state.factoid} onChange={this.createHandler} />
 
-        <button className="button" >Create New Flower Here</button>
+        <Button color ='green'>Create New Flower Here</Button>
 
       </form>
 

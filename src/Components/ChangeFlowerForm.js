@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Button } from 'semantic-ui-react'
 
 class ChangeFlowerForm extends React.Component {
 
@@ -41,7 +42,7 @@ class ChangeFlowerForm extends React.Component {
 
         <input type="text" name="factoid" placeholder="update fun flower factoid..." value={this.state.factoid} onChange={this.changeHandler} />
 
-        <button className="button" >Update Flower Here</button>
+        <Button color='purple' >Update Flower Here</Button>
 
       </form>
 

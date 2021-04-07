@@ -5,7 +5,7 @@ import FlowerComponent from '../Components/FlowerComponent'
 import NewFlowerForm from '../Components/NewFlowerForm'
 import SearchFlowerForm from '../Components/SearchFlowerForm'
 import ChangeFlowerForm from '../Components/ChangeFlowerForm'
-import FavedContainer from '../Containers/FavedContainer'
+import SavedContainer from './SavedContainer'
 import { getFlowers } from '../redux/actions'
 
 class FlowerContainer extends React.Component {
@@ -63,7 +63,7 @@ class FlowerContainer extends React.Component {
             <ChangeFlowerForm />
             </>}
             />
-            <Route path="/flowers/saved" render={() => <FavedContainer favedFlowers={this.state.favedFlowers} />} />
+            <Route path="/flowers/saved" render={() => <SavedContainer favedFlowers={this.state.favedFlowers} />} />
             <Route path="/flowers" render={() => {
               return (
                 this.props.flowers.length === 0 ? <h2>loading...</h2> :

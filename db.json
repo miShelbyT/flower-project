@@ -55,6 +55,13 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Anemones5.jpg/1024px-Anemones5.jpg",
       "factoid": "Anemone is of the family buttercup",
       "id": 8
+    },
+    {
+      "name": "Tulip",
+      "type": "perennial",
+      "img": "https://ngb.org/wp-content/uploads/2018/09/longfield.gardens.Sept_.jpg",
+      "factoid": "Originally growing wild in the valleys of the Tian Shan Mountains, tulips were cultivated in Constantinople as early as 1055. ",
+      "id": 9
     }
   ]
 }
