@@ -62,6 +62,13 @@
       "img": "https://ngb.org/wp-content/uploads/2018/09/longfield.gardens.Sept_.jpg",
       "factoid": "Originally growing wild in the valleys of the Tian Shan Mountains, tulips were cultivated in Constantinople as early as 1055. ",
       "id": 9
+    },
+    {
+      "name": "Primrose",
+      "type": "perennial",
+      "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-658220544-612x612-1605790870.jpg?crop=0.876xw:1.00xh;0.104xw,0&resize=980:*",
+      "factoid": "Primroses appear in very early spring in a rainbow of colors including white, canary yellow, deep purple, and pink.",
+      "id": 10
     }
   ]
 }
