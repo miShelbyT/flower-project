@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import FlowerComponent from '../Components/FlowerComponent'
@@ -11,10 +11,10 @@ import { getFlowers } from '../redux/actions'
 class FlowerContainer extends React.Component {
 
   state = {
-    // flowerAPI: [],
     favedFlowers: [],
     searchTerm: ""
   }
+
 
   componentDidMount() {
     this.props.getFlowers()

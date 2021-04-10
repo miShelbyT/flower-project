@@ -6,11 +6,6 @@ import { Button, Icon } from 'semantic-ui-react'
 
 function FlowerComponent(props) {
 
-  // state = {
-  //   counterLikes: 0,
-  //   beenClicked: false
-  // }
-
   const [likes, setLikes] = useState(0)
   const [beenClicked, setBeenClicked] = useState(false)
 

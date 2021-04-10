@@ -7,7 +7,6 @@ import Header from './Components/Header'
 
 
 function App () {
-    // console.log(this.state.flowerAPI)
     return (
       <>
         <Header />

@@ -7,7 +7,7 @@ function SearchFlowerForm (props){
 
       <form>
         <label style={{margin: 8, fontSize: 18}}>Flower Search:</label>
-        <input type="text" placeholder="filter flower by name..." value={props.searchTerm} onChange={props.searchFlower} />
+        <input type="text" placeholder="filter flower by name..." value={props.ref} onChange={props.searchFlower} />
       </form>
 
     )
