@@ -4,7 +4,7 @@ import { deleteFlower } from '../redux/actions'
 import { Button, Icon } from 'semantic-ui-react'
 
 
-function FlowerComponent (props) {
+function FlowerComponent(props) {
 
   // state = {
   //   counterLikes: 0,
@@ -12,10 +12,10 @@ function FlowerComponent (props) {
   // }
 
   const [likes, setLikes] = useState(0)
-  const [beenClicked, setBeenClicked] = useState (false)
+  const [beenClicked, setBeenClicked] = useState(false)
 
   const increaseLikes = () => {
-   return setLikes(likes + 1 )
+    return setLikes(likes + 1)
   }
 
   const localFaveAFlower = () => {
@@ -42,55 +42,59 @@ function FlowerComponent (props) {
 
 
 
-  
-    return (
-      <div className="flower-div">
-        <h3 className="text"> {props.flowerObj.name} ☀️</h3>
-        <img onClick={sendFlowerToChangeForm} className="img" src={props.flowerObj.img} alt="flowers" />
-        <h4>Type: {props.flowerObj.type}</h4>
-        <h4>Fave/Likes Counter: {likes}</h4>
 
-        <Button animated='vertical' onClick={increaseLikes} basic color='red' content='Red' >
-          <Button.Content hidden>Fave</Button.Content>
+  return (
+    <div className="flower-div">
+      <h3> {props.flowerObj.name}</h3>
+      <img onClick={sendFlowerToChangeForm} className="img" src={props.flowerObj.img} alt="flowers" />
+      <h4>Type: {props.flowerObj.type}</h4>
+      <h4>Fave Counter: {likes}</h4>
+
+      <Button animated='vertical' onClick={increaseLikes} basic color='red' content='Red' >
+        <Button.Content hidden>Fave</Button.Content>
+        <Button.Content visible>
+          <Icon name='heart' />
+        </Button.Content>
+      </Button>
+
+      <Button animated='vertical' onClick={localFaveAFlower} basic color='blue' content='Blue' >
+        <Button.Content hidden>Save</Button.Content>
+        <Button.Content visible>
+          <Icon name='save' />
+        </Button.Content>
+      </Button>
+
+      {beenClicked ?
+        <Button animated='vertical' onClick={clickHandler} basic color='green' content='Green' >
+          <Button.Content hidden>Hide Details</Button.Content>
           <Button.Content visible>
-            <Icon name='heart' />
+            <Icon name='expand' />
+          </Button.Content>
+        </Button> : <Button animated='vertical' onClick={clickHandler} basic color='green' content='Green' >
+          <Button.Content hidden>Show Details</Button.Content>
+          <Button.Content visible>
+            <Icon name='move' />
           </Button.Content>
         </Button>
+      }
 
-        <Button animated='vertical' onClick={localFaveAFlower} basic color='blue' content='Blue' >
-          <Button.Content hidden>Save</Button.Content>
-          <Button.Content visible>
-            <Icon name='save' />
-          </Button.Content>
-        </Button>
+      {beenClicked ?
+        <div className='factoid-div'> <span>
+          Factoid: {props.flowerObj.factoid}
+        </span>
+        </div> : null}
 
-        {beenClicked ?
-          <Button animated='vertical' onClick={clickHandler} basic color='green' content='Green' >
-            <Button.Content hidden>Hide Details</Button.Content>
-            <Button.Content visible>
-              <Icon name='expand' />
-            </Button.Content>
-          </Button> : <Button animated='vertical' onClick={clickHandler} basic color='green' content='Green' >
-            <Button.Content hidden>Show Details</Button.Content>
-            <Button.Content visible>
-              <Icon name='move' />
-            </Button.Content>
-          </Button>
-        }
 
-        {beenClicked ?
-          <p className='text' >Factoid: {props.flowerObj.factoid}</p> : null}
+      <Button animated='vertical' onClick={deleteClickHandler} basic color='purple' content='Purple' >
+        <Button.Content hidden>Delete</Button.Content>
+        <Button.Content visible>
+          <Icon name='delete' />
+        </Button.Content>
+      </Button>
 
-        <Button animated='vertical' onClick={deleteClickHandler} basic color='purple' content='Purple' >
-          <Button.Content hidden>Delete</Button.Content>
-          <Button.Content visible>
-            <Icon name='delete' />
-          </Button.Content>
-        </Button>
-
-      </div>
-    )
-  }
+    </div>
+  )
+}
 
 const mdp = (dispatch) => {
   return {

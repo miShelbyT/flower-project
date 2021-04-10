@@ -11,10 +11,10 @@ function SavedContainer(props){
   // console.log(props.favedFlowers)
   return(
     <>
-    <hr></hr>
     <h2>Saved Flowers: 🌷🌻</h2>
-    <hr></hr>
+   <div className="container">
     {renderFaves()}
+   </div>
   
     </>
   )
