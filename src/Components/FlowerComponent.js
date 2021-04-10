@@ -1,27 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { deleteFlower } from '../redux/actions'
 import { Button, Icon } from 'semantic-ui-react'
 
 
-class FlowerComponent extends React.Component {
+function FlowerComponent (props) {
 
-  state = {
-    counterLikes: 0,
-    beenClicked: false
+  // state = {
+  //   counterLikes: 0,
+  //   beenClicked: false
+  // }
+
+  const [likes, setLikes] = useState(0)
+  const [beenClicked, setBeenClicked] = useState (false)
+
+  const increaseLikes = () => {
+   return setLikes(likes + 1 )
   }
 
-  increaseLikes = () => {
-    this.setState(prevState => ({ counterLikes: prevState.counterLikes + 1 })
-    )
+  const localFaveAFlower = () => {
+    props.faveAFlower(props.flowerObj)
   }
 
-  localFaveAFlower = () => {
-    this.props.faveAFlower(this.props.flowerObj)
-    console.log(this)
-  }
-
-  sendFlowerToChangeForm = () => {
+  const sendFlowerToChangeForm = () => {
     console.log("yippee!")
     // need to send info up to parent so the data will reflect in the form and 
     // i can update flower object, set state and make a PATCH request.
@@ -29,11 +30,11 @@ class FlowerComponent extends React.Component {
 
   }
 
-  clickHandler = () => {
-    this.setState({ beenClicked: !this.state.beenClicked })
+  const clickHandler = () => {
+    return setBeenClicked(!beenClicked)
   }
 
-  deleteClickHandler = () => {
+  const deleteClickHandler = () => {
     // this.props.deleteFlower()
     // console.log("this is not working. yet")
   }
@@ -41,35 +42,35 @@ class FlowerComponent extends React.Component {
 
 
 
-  render() {
+  
     return (
-      <div>
-        <h3 className="text"> {this.props.flowerObj.name} ☀️</h3>
-        <img onClick={this.sendFlowerToChangeForm} className="img" src={this.props.flowerObj.img} alt="flowers" />
-        <h4>Type: {this.props.flowerObj.type}</h4>
-        <h4>Fave/Likes Counter: {this.state.counterLikes}</h4>
+      <div className="flower-div">
+        <h3 className="text"> {props.flowerObj.name} ☀️</h3>
+        <img onClick={sendFlowerToChangeForm} className="img" src={props.flowerObj.img} alt="flowers" />
+        <h4>Type: {props.flowerObj.type}</h4>
+        <h4>Fave/Likes Counter: {likes}</h4>
 
-        <Button animated='vertical' onClick={this.increaseLikes} basic color='red' content='Red' >
+        <Button animated='vertical' onClick={increaseLikes} basic color='red' content='Red' >
           <Button.Content hidden>Fave</Button.Content>
           <Button.Content visible>
             <Icon name='heart' />
           </Button.Content>
         </Button>
 
-        <Button animated='vertical' onClick={this.localFaveAFlower} basic color='blue' content='Blue' >
+        <Button animated='vertical' onClick={localFaveAFlower} basic color='blue' content='Blue' >
           <Button.Content hidden>Save</Button.Content>
           <Button.Content visible>
             <Icon name='save' />
           </Button.Content>
         </Button>
 
-        {this.state.beenClicked ?
-          <Button animated='vertical' onClick={this.clickHandler} basic color='green' content='Green' >
+        {beenClicked ?
+          <Button animated='vertical' onClick={clickHandler} basic color='green' content='Green' >
             <Button.Content hidden>Hide Details</Button.Content>
             <Button.Content visible>
               <Icon name='expand' />
             </Button.Content>
-          </Button> : <Button animated='vertical' onClick={this.clickHandler} basic color='green' content='Green' >
+          </Button> : <Button animated='vertical' onClick={clickHandler} basic color='green' content='Green' >
             <Button.Content hidden>Show Details</Button.Content>
             <Button.Content visible>
               <Icon name='move' />
@@ -77,24 +78,19 @@ class FlowerComponent extends React.Component {
           </Button>
         }
 
-        {this.state.beenClicked ?
-          <p className='text' >Factoid: {this.props.flowerObj.factoid}</p> : null}
+        {beenClicked ?
+          <p className='text' >Factoid: {props.flowerObj.factoid}</p> : null}
 
-        <Button animated='vertical' onClick={this.deleteClickHandler} basic color='purple' content='Purple' >
+        <Button animated='vertical' onClick={deleteClickHandler} basic color='purple' content='Purple' >
           <Button.Content hidden>Delete</Button.Content>
           <Button.Content visible>
             <Icon name='delete' />
           </Button.Content>
         </Button>
 
-
-        <hr></hr>
-
       </div>
     )
   }
-
-}
 
 const mdp = (dispatch) => {
   return {

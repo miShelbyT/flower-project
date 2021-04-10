@@ -27,7 +27,7 @@ input[type=text] {
   color: green
 }
 
-.other-button {
+/* .other-button {
   background-color: #f3d6e9;
   border: 2px solid grey;
   color: rgb(59, 15, 15);
@@ -38,14 +38,34 @@ input[type=text] {
   display: inline-block;
   font-size: 16px;
   border-radius: 4px;
-}
+} */
 
-#header {
+/* #header {
   margin: 0px;
   font-family: Georgia;
+} */
+
+/* .text {
+  margin: 20px 350px;
+} */
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
-.text {
-  margin: 20px 350px;
+.flower-div {
+  height: fit-content;
+  margin: 1.5em;
+  padding: 1.5em;
+  border: 1px solid grey;
+  border-radius: 0.6em;
+  
+}
+
+img {
+  height: 200px;
 }
 

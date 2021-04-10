@@ -25,7 +25,6 @@ class FlowerContainer extends React.Component {
     if(!this.state.favedFlowers.includes(flowerObj)){
       const newFlowerArray = [...this.state.favedFlowers, flowerObj]
       this.setState({ favedFlowers: newFlowerArray })
-      // console.log(this.state.favedFlowers)
     }
   }
 
@@ -36,31 +35,22 @@ class FlowerContainer extends React.Component {
 
   renderFilteredFlowers() {
     let filteredArray = this.props.flowers.filter(flowerObj => flowerObj.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
-    // console.log(this.props)
 
     return filteredArray.map(flowerObj => <FlowerComponent key={flowerObj.id} flowerObj={flowerObj} faveAFlower={this.faveAFlower} getFlowerObj={this.getFlowerObj} />)
 
-    // return this.props.flowers.map(flowerObj => <FlowerComponent key={flowerObj.id} flowerObj={flowerObj} faveAFlower={this.faveAFlower} getFlowerObj={this.getFlowerObj} />)
   }
-
-  // renderFlowers = () => {
-  //   return this.state.flowerAPI.map(flowerObj => <FlowerComponent key={flowerObj.id} flowerObj={flowerObj} faveAFlower={this.faveAFlower} getFlowerObj={this.getFlowerObj} />)
-  // }
 
 
   render() {
-    // console.log(this.props.flowers)
     return (
       <>
         {this.props.flowers.length === 0 ? <h2>loading...</h2> :
 
-        
-
+      
           <Switch>
             <Route path="/flowers/new" render={() => 
             <>
             <NewFlowerForm submitHandler={this.submitHandler} />
-            <ChangeFlowerForm />
             </>}
             />
             <Route path="/flowers/saved" render={() => <SavedContainer favedFlowers={this.state.favedFlowers} />} />
@@ -69,8 +59,9 @@ class FlowerContainer extends React.Component {
                 this.props.flowers.length === 0 ? <h2>loading...</h2> :
                   <>
                     <SearchFlowerForm searchTerm={this.state.searchTerm} searchFlower={this.searchFlower} />
-                    
+                    <div className="container">
                     {this.renderFilteredFlowers()}
+                    </div>
                   </>
               )
 
