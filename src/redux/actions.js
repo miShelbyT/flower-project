@@ -38,8 +38,8 @@ export const getFlowers = () => {
 }
 
 export const getAffirmation = () => {
-  return async (dispatch) => {
-    await fetch("https://dulce-affirmations-api.herokuapp.com/affirmation")
+  return function (dispatch) {
+     fetch("https://dulce-affirmations-api.herokuapp.com/affirmation")
       .then(r => r.json())
       .then(affirmation => {
         // console.log(affirmation[0].phrase)
