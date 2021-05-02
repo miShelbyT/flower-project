@@ -17,6 +17,7 @@ function FlowerComponent(props) {
     props.faveAFlower(props.flowerObj)
   }
 
+
   const sendFlowerToChangeForm = () => {
     console.log("yippee!")
     // need to send info up to parent so the data will reflect in the form and 
@@ -41,18 +42,18 @@ function FlowerComponent(props) {
   return (
     <div className="flower-div">
       <h3> {props.flowerObj.name}</h3>
-      <img onClick={sendFlowerToChangeForm} className="img" src={props.flowerObj.img} alt="flowers" />
+      <img onClick={sendFlowerToChangeForm} className="img" src={props.flowerObj.img} alt={props.flowerObj.name} />
       <h4>Type: {props.flowerObj.type}</h4>
       <h4>Fave Counter: {likes}</h4>
 
-      <Button animated='vertical' onClick={increaseLikes} basic color='red' content='Red' >
+      <Button animated='vertical' onClick={increaseLikes} basic color='red'>
         <Button.Content hidden>Fave</Button.Content>
         <Button.Content visible>
           <Icon name='heart' />
         </Button.Content>
       </Button>
 
-      <Button animated='vertical' onClick={localFaveAFlower} basic color='blue' content='Blue' >
+      <Button animated='vertical' onClick={localFaveAFlower} basic color='blue'>
         <Button.Content hidden>Save</Button.Content>
         <Button.Content visible>
           <Icon name='save' />
@@ -60,12 +61,12 @@ function FlowerComponent(props) {
       </Button>
 
       {beenClicked ?
-        <Button animated='vertical' onClick={clickHandler} basic color='green' content='Green' >
+        <Button animated='vertical' onClick={clickHandler} basic color='green'>
           <Button.Content hidden>Hide Details</Button.Content>
           <Button.Content visible>
             <Icon name='expand' />
           </Button.Content>
-        </Button> : <Button animated='vertical' onClick={clickHandler} basic color='green' content='Green' >
+        </Button> : <Button animated='vertical' onClick={clickHandler} basic color='green'>
           <Button.Content hidden>Show Details</Button.Content>
           <Button.Content visible>
             <Icon name='move' />
@@ -80,7 +81,7 @@ function FlowerComponent(props) {
         </div> : null}
 
 
-      <Button animated='vertical' onClick={deleteClickHandler} basic color='purple' content='Purple' >
+      <Button animated='vertical' onClick={deleteClickHandler} basic color='purple'>
         <Button.Content hidden>Delete</Button.Content>
         <Button.Content visible>
           <Icon name='delete' />

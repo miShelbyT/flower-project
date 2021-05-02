@@ -8,43 +8,39 @@ import ChangeFlowerForm from '../Components/ChangeFlowerForm'
 import SavedContainer from './SavedContainer'
 import { getFlowers } from '../redux/actions'
 
-class FlowerContainer extends React.Component {
+function FlowerContainer (props) {
 
-  state = {
-    favedFlowers: [],
-    searchTerm: ""
-  }
+  const [faved, setFaved] = useState([])
+  const [searchTerm, setSearchTerm] = useState("")
 
-
-  componentDidMount() {
-    this.props.getFlowers()
-  }
+  useEffect(() => {
+    props.getFlowers()
+  },[])
 
 
-  faveAFlower = (flowerObj) => {
-    if(!this.state.favedFlowers.includes(flowerObj)){
-      const newFlowerArray = [...this.state.favedFlowers, flowerObj]
-      this.setState({ favedFlowers: newFlowerArray })
+  function faveAFlower(flowerObj){
+    if(!faved.includes(flowerObj)){
+      const newFlowerArray = [...faved, flowerObj]
+      setFaved(newFlowerArray)
     }
   }
 
 
-  searchFlower = (e) => {
-    this.setState({ searchTerm: e.target.value })
+  function searchFlower(e){
+    setSearchTerm(e.target.value)
   }
 
-  renderFilteredFlowers() {
-    let filteredArray = this.props.flowers.filter(flowerObj => flowerObj.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+  function renderFilteredFlowers(){
+    let filteredArray = props.flowers.filter(flowerObj => flowerObj.name.toLowerCase().includes(searchTerm.toLowerCase()))
 
-    return filteredArray.map(flowerObj => <FlowerComponent key={flowerObj.id} flowerObj={flowerObj} faveAFlower={this.faveAFlower} getFlowerObj={this.getFlowerObj} />)
+    return filteredArray.map(flowerObj => <FlowerComponent key={flowerObj.id} flowerObj={flowerObj} faveAFlower={faveAFlower} getFlowerObj={props.getFlowerObj} />)
 
   }
 
-
-  render() {
+  
     return (
       <>
-        {this.props.flowers.length === 0 ? <h2>loading...</h2> :
+        {props.flowers.length === 0 ? <h2>loading...</h2> :
 
       
           <Switch>
@@ -53,14 +49,14 @@ class FlowerContainer extends React.Component {
             <NewFlowerForm submitHandler={this.submitHandler} />
             </>}
             />
-            <Route path="/flowers/saved" render={() => <SavedContainer favedFlowers={this.state.favedFlowers} />} />
+            <Route path="/flowers/saved" render={() => <SavedContainer favedFlowers={faved} />} />
             <Route path="/flowers" render={() => {
               return (
-                this.props.flowers.length === 0 ? <h2>loading...</h2> :
+                props.flowers.length === 0 ? <h2>loading...</h2> :
                   <>
-                    <SearchFlowerForm searchTerm={this.state.searchTerm} searchFlower={this.searchFlower} />
+                    <SearchFlowerForm searchTerm={searchTerm} searchFlower={searchFlower} />
                     <div className="container">
-                    {this.renderFilteredFlowers()}
+                    {renderFilteredFlowers()}
                     </div>
                   </>
               )
@@ -75,7 +71,6 @@ class FlowerContainer extends React.Component {
 
   }
 
-}
 // when using fetch, the action creator is passed as an argument to dispatch. thunk intercepts, sees that what is returned is a function and not a simple object so it runs the function, runs the fetch, retrieves the response and then sends the resulting data to the reducer, which sends the data to the store to update state.
 
 const mapStateToProps = (state) => {

@@ -27,7 +27,7 @@ export const getFlowers = () => {
   return function (dispatch) {
     // console.log("nested function invoked", dispatch)
     // anonymous function, we don't need to give it a variable name bc we won't be calling it.
-    fetch("http://localhost:5000/flowerlist")
+    fetch("https://mishelbyt.github.io/flower-db/db.json")
       .then(resp => resp.json())
       // .then(console.log)
       .then(flowerArray => dispatch({ type: GET_FLOWERS, payload: flowerArray }))
