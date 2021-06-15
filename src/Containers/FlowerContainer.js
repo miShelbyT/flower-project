@@ -46,7 +46,8 @@ function FlowerContainer (props) {
           <Switch>
             <Route path="/flowers/new" render={() => 
             <>
-            <NewFlowerForm submitHandler={this.submitHandler} />
+            <NewFlowerForm /> 
+            {/* <NewFlowerForm submitHandler={submitHandler} /> */}
             </>}
             />
             <Route path="/flowers/saved" render={() => <SavedContainer favedFlowers={faved} />} />

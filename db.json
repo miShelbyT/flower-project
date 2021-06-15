@@ -64,11 +64,17 @@
       "id": 9
     },
     {
-      "name": "Primrose",
-      "type": "perennial",
-      "img": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-658220544-612x612-1605790870.jpg?crop=0.876xw:1.00xh;0.104xw,0&resize=980:*",
-      "factoid": "Primroses appear in very early spring in a rainbow of colors including white, canary yellow, deep purple, and pink.",
-      "id": 10
+      "name": "Daisy",
+      "img": "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg",
+      "factoid": "There are 23,000 individual species in this family.",
+      "id": 11
+    },
+    {
+      "name": "Red Rose",
+      "img": "https://hgtvhome.sndimg.com/content/dam/images/grdn/fullset/2013/4/10/0/CI_original-red-rose-photo-by-peggy-greb-usda-agricultural-research-service.jpg.rend.hgtvcom.616.822.suffix/1452656202495.jpeg",
+      "type": "Red",
+      "factoid": "Beauty and the Beast..... need I say more?",
+      "id": 12
     }
   ]
 }

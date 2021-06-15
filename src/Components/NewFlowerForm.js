@@ -1,58 +1,55 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { addFlower } from '../redux/actions'
 import { withRouter } from 'react-router-dom'
 import { Button } from 'semantic-ui-react'
 
 
-class NewFlowerForm extends React.Component {
+function NewFlowerForm (props) {
 
-  // reminder that forms always hold local state even when we use Redux to hold global state.once the object is created and the POST is sent, the object is sent to global state held in the store but local state remains to reset the form
 
-  state = {
-    name: "",
-    type: "",
-    img: "",
-    factoid: ""
-  }
+const [flowerName, setFlowerName] = useState("")
+const [flowerType, setFlowerType] = useState("")
+const [flowerImg, setFlowerImg] = useState("")
+const [flowerFactoid, setFlowerFactoid] = useState("")
 
-  createHandler = (e) => {
-    this.setState({ [e.target.name]: e.target.value })
-  }
+const flower = {
+  name: flowerName,
+  img: flowerImg,
+  type: flowerType,
+  factoid: flowerFactoid
+}
 
-  submitHandler = (e) => {
+
+  const submitHandler = (e) => {
     e.preventDefault()
-    this.props.submitHandler(this.state)
-    this.props.history.push("/flowers")
-    this.setState({
-      name: "",
-      type: "",
-      img: "",
-      factoid: ""
-    })
+    props.submitHandler(flower)
+    props.history.push("/flowers")
+    setFlowerName('')
+    setFlowerImg('')
+    setFlowerType('')
+    setFlowerFactoid('')
 
   }
 
 
-  render() {
-    // console.log("Form Props", this.props)
+  
     return (
 
-      <form onSubmit={this.submitHandler}>
-        <input type="text" name="name" placeholder="name goes here..." value={this.state.name} onChange={this.createHandler} />
+      <form onSubmit={submitHandler}>
+        <input type="text" name="name" placeholder="name goes here..." value={flowerName} onChange={(e => setFlowerName(e.target.value))} />
 
-        <input type="text" name="type" placeholder="flower type goes here..." value={this.state.type} onChange={this.createHandler} />
+        <input type="text" name="type" placeholder="flower type goes here..." value={flowerType} onChange={(e => setFlowerType(e.target.value))} />
 
-        <input type="text" name="img" placeholder="image url goes here..." value={this.state.img} onChange={this.createHandler} />
+        <input type="text" name="img" placeholder="image url goes here..." value={flowerImg} onChange={(e => setFlowerImg(e.target.value))} />
 
-        <input type="text" name="factoid" placeholder="fun flower fact goes here..." value={this.state.factoid} onChange={this.createHandler} />
+        <input type="text" name="factoid" placeholder="fun flower fact goes here..." value={flowerFactoid} onChange={(e => setFlowerFactoid(e.target.value))} />
 
         <Button color ='green'>Create New Flower Here</Button>
 
       </form>
 
     )
-  }
 }
 // mdp must return an object that passes dispatch wrapped in a thunk to delay execution/invocation. dispatch must point to an action object with a type key. in this case we are invoking the function addFlower as defined in actions.js. don't forget to pass the object through after dispatch/function!
 

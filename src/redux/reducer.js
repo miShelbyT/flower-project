@@ -15,7 +15,7 @@ function flowersReducer(currentState = defaultState.flowers, action) {
     case GET_FLOWERS:
       return action.payload
       case DELETE_FLOWER:
-        return 0
+        return currentState.filter(flower => flower.id !== action.payload)
     default:
       return currentState
   }
